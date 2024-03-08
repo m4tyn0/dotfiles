@@ -1,4 +1,3 @@
-#testing
 # Navigation aliases
 alias ..="cd .."
 alias ...="cd ../.."
@@ -27,6 +26,14 @@ alias zshreload="source ~/.zshrc"
 
 # Clear the screen
 alias cls="clear"
-eval $(/opt/homebrew/bin/brew shellenv)
 
+# Check OS type
+OS_TYPE=$(uname -s)
 
+if [ "$OS_TYPE" = "Darwin" ]; then
+    # macOS specific command
+    echo "Running on macOS."
+    eval $(/opt/homebrew/bin/brew shellenv)
+else 
+    echo "Running on Linux."
+fi
