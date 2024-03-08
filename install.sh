@@ -1,21 +1,11 @@
-#!/bin/bash
-
-# Install Oh My Zsh if it's not already installed
-if [ ! -d "$HOME/.oh-my-zsh" ]; then
-    echo "Installing Oh My Zsh..."
-    sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-else
-    echo "Oh My Zsh is already installed."
-fi
+#!bin/bash
 
 # Symlink dotfiles
 ln -sf $HOME/.dotfiles/bashrc $HOME/.bashrc
 ln -sf $HOME/.dotfiles/zshrc $HOME/.zshrc
-ln -snf $HOME/.dotfiles/ssh $HOME/.ssh
 
-# Vim configuration
+# Vim and nano configuration
 ln -sf $HOME/.dotfiles/vimrc $HOME/.vimrc
-# Nano configuration
 ln -sf $HOME/.dotfiles/nanorc $HOME/.nanorc
 
 # Attempt to source the Zsh configuration to apply changes
