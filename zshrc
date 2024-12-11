@@ -44,7 +44,14 @@ fi
 echo "Activating virtual environment..."
 source venv/bin/activate
 '
-
+export GOPATH=$HOME/go
+export GOBIN=$GOPATH/bin
+# Homebrew
+export GOROOT="$(brew --prefix golang)/libexec"
+# Manual install
+# export GOROOT=/usr/local/go
+export PATH=$PATH:$GOPATH/bin
+export PATH=$PATH:$GOROOT/bin
 
 # bun completions
 [ -s "/Users/matyno/.bun/_bun" ] && source "/Users/matyno/.bun/_bun"
@@ -55,3 +62,11 @@ export PATH="$BUN_INSTALL/bin:$PATH"
 
 # Created by `pipx` on 2024-07-18 10:45:33
 export PATH="$PATH:/Users/matyno/.local/bin"
+. "/Users/matyno/.deno/env"
+# pnpm
+export PNPM_HOME="/Users/matyno/Library/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# pnpm end
