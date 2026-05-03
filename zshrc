@@ -1,3 +1,6 @@
+# ─── completions ──────────────────────────────────────────────────────────────
+autoload -Uz compinit && compinit
+
 # ─── os detection ─────────────────────────────────────────────────────────────
 IS_MAC=false
 IS_LINUX=false
